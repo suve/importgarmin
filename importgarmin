@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# This file simply runs garmin_save_runs, which imports
+# workouts from a Garmin device to ~/exports, in .gmn
+# format, and then runs convert.gmn.sh to produce
+# .tcx for all imported workouts.
+
+OLDDIR=`pwd`
+cd ~/exports
+garmin_save_runs
+./convert.gmn.sh
+# ./convert.gmn.sh /tcx_dir   # Copy all .tcx files from ~/exports to a different dir
+cd $OLDDIR
